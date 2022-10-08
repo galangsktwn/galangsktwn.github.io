@@ -1,0 +1,70 @@
+#konten {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px 0;
+  min-height: 100vh;
+}
+.kartu {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  background: #c3883d;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 100px;
+  overflow: hidden;
+  padding: 20px;
+  margin: 0 17px;
+}
+.pp {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  margin: 20px auto;
+  position: relative;
+}
+.pp img {
+  border-radius: 50%;
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  border: 1px solid rgb(0, 0, 0);
+}
+.border-luar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 200px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+  border: 4px solid rgb(255, 255, 255);
+  border-left: 0;
+  box-sizing: border-box;
+}
+.nama {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  font-family: "Amatic SC", cursive;
+  color: white;
+}
+.deskripsi {
+  text-align: justify;
+  margin: 20px 0;
+  font-family: "Ubuntu", sans-serif;
+}
+.kartu > a {
+  display: block;
+  margin: 10px auto;
+  width: 150px;
+  height: auto;
+  text-align: center;
+  background: white;
+  color: black;
+  padding: 10px 0;
+  border-radius: 20px;
+}

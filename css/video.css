@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans&family=Poppins&family=Ubuntu&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  outline: none;
+}
+.video-player{
+  max-width: 1100px;
+  width: 97%;
+  height: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #000;
+  display: flex;
+  margin: 50px auto;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+.video-player.desktop .kendali-desktop,
+.video-player.mobile .kendali-mobile{
+  display: block !important;
+}
+.kendali-desktop,
+.kendali-mobile{
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+/* Kendali Desktop */
+.kendali-desktop .status{
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(2);
+  opacity: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+}
+.kendali-desktop .status.showit{
+  display: flex;
+  animation: popping .5s linear forwards;
+}
+.kendali-desktop i{
+  font-size: 20px;
+  color: #fff;
+}
+@keyframes popping {
+  from{
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }to{
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 0;
+  }
+}
+.kendali-desktop .kendali{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: linear-gradient(0deg, transparent, transparent);
+  z-index: 1;
+  transition: .3s ease;
+  transform: translateY(100%) translateY(-1px);
+}
+.kendali-desktop.tampilkan-kendali .kendali{
+  padding: 10px;
+  transform: translateY(0);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), transparent);
+}
+.kendali-desktop .bar-durasi{
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-bottom: 10px;
+}
+.bar-case{
+  width: 100%;
+  height: 3px;
+  background-color: rgba(221, 221, 221, 0.4);
+  z-index: -1;
+  transition: 0.3s ease;
+}
+.bar-case,
+.slide-bar,
+.current-bar{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.slide-bar{
+  width: 100%;
+  appearance: none;
+  background: none;
+  cursor: pointer;
+}
+.slide-bar::-webkit-slider-thumb{
+  appearance: none;
+  width: 0;
+  height: 0;
+  background-color: rgb(0, 162, 255);
+  border-radius: 50%;
+  transition: .3s ease;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+.slide-bar::-webkit-slider-thumb:hover{
+  background-color: rgb(0, 120, 189);
+}
+.bar-durasi:hover .slide-bar::-webkit-slider-thumb{
+  width: 13px;
+  height: 13px;
+}
+.bar-durasi:hover .bar-case,
+.volume-bar:hover .bar-case{
+  background-color: rgba(221, 221, 221, 0.8);
+  height: 4px;
+}
+.current-bar{
+  width: 0;
+  height: 3px;
+  background-color: rgb(0, 162, 255);
+}
+.loading-bar{
+  width: 100%;
+  height: 3px;
+  background: none;
+  overflow: hidden !important;
+  position: relative;
+}
+.loading-bar .line-bar-1,
+.loading-bar .line-bar-2{
+  height: 100%;
+  background-color: rgb(0, 162, 255);
+  position: absolute;
+}
+.line-bar-1{
+  animation: loading-forward 3s ease infinite;
+}
+.line-bar-2{
+  animation: loading-backward 3s 0.3s ease infinite;
+}
+.loaded.loading-bar .line-bar-1,
+.loaded.loading-bar .line-bar-2{
+  animation: none !important;
+}
+@keyframes loading-forward {
+  0%{
+    width: 0;
+    transform: translateX(0);
+  }
+  100%{
+    width: 100%;
+    transform: translateX(150%);
+  }
+}
+@keyframes loading-backward {
+  from{
+    left: -200%;
+    width: 100%;
+  }
+  to{
+    left: 120%;
+    width: 0%;
+  }
+}
+.bar-durasi:hover .current-bar,
+.volume-bar:hover .current-bar{
+  height: 4px;
+}
+.kendali-desktop .buttons{
+  display: flex;
+  justify-content: space-between;
+}
+.kendali-desktop .kiri{
+  display: flex;
+}
+.kendali-desktop .kendali button{
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  border: none;
+  background: none;
+  cursor: pointer !important;
+  margin: 0 2px;
+}
+.kendali-desktop .kendali button i{
+  font-size: 17px;
+  transition: color .3s ease;
+}
+.kendali-desktop .audio{
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+.kendali-desktop .volume-bar{
+  position: relative;
+  width: 0;
+  transition: .3s ease;
+  margin-right: 10px;
+}
+.kendali-desktop .audio:hover > .volume-bar,
+.kendali-desktop .audio:hover > .volume-bar .slide-bar{
+  width: 80px;
+}
+.kendali-desktop .audio:hover > .volume-bar .slide-bar::-webkit-slider-thumb{
+  width: 13px;
+  height: 13px;
+}
+.kendali-desktop .volume-bar .slide-bar::-webkit-slider-thumb{
+  width: 0;
+  height: 0;
+  transition: .3s ease;
+}
+.kendali-desktop .volume-bar .slide-bar{
+  width: 0;
+  cursor: pointer;
+  appearance: none;
+  background: none;
+  transition: .3s ease;
+}
+.durasi-video{
+  width: auto;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  /* margin: 0 10px; */
+}
+.durasi-video span{
+  color: #fff;
+  font-size: 12px;
+}
+.durasi-video span:nth-child(2){
+  margin: 0 5px;
+}
+/* Kendali Mobile */
+.kendali-mobile{
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: .5s;
+}
+.kendali-mobile.tampilkan-kendali{
+  opacity: 1;
+}
+.kendali-mobile > div{
+  visibility: hidden;
+}
+.kendali-mobile.tampilkan-kendali > div{
+  visibility: visible;
+}
+.kendali-mobile .kendali{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+}
+.kendali-mobile .kendali button{
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  outline: none;
+  margin: 0 30px;
+}
+.kendali-mobile .kendali button i{
+  color: #fff;
+  font-size: 30px;
+}
+.kendali-mobile .status{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+}
+.kendali-mobile .status .bar-durasi{
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+.kendali-mobile .status .slide-bar::-webkit-slider-thumb{
+  width: 13px;
+  height: 13px;
+}
+.kendali-mobile .status .info{
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.kendali-mobile .status .info button{
+  /* width: 30px; */
+  height: 30px;
+  border: none;
+  background: none;
+  outline: none;
+}
+.kendali-mobile .status .info button i{
+  color: #fff;
+}
+/* Video */
+.video-player video{
+  width: 100%;
+  height: 100%;
+}

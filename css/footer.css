@@ -1,0 +1,79 @@
+#footer {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  padding: 50px 30px;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(195, 136, 61, 0.7);
+}
+.foot-atas {
+  display: flex;
+  justify-content: space-around;
+}
+.sosmed {
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+.sosmed h2,
+.info .kolom h2 {
+  font-size: 20px;
+  color: #976524;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-family: "Montserrat", sans-serif;
+}
+.sosmed a {
+  color: white;
+  margin-right: 5px;
+}
+.info {
+  display: flex;
+  flex-wrap: wrap;
+}
+.info .kolom {
+  margin: 0 20px;
+  margin-bottom: 30px;
+}
+.info .kolom a,
+.info .kolom span {
+  display: block;
+  color: white;
+  margin: 5px 0;
+  cursor: pointer;
+}
+.info .kolom a:hover,
+.info .kolom span:hover {
+  color: #c3883d;
+}
+.info .kolom p {
+  color: white;
+  margin: 5px 0;
+}
+.info .kolom p > * {
+  display: inline-block;
+}
+.info .kolom p i {
+  margin-right: 10px;
+}
+.foot-bawah {
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  margin: 10px 0;
+}
+.foot-bawah p {
+  text-align: center;
+  color: white;
+  margin: 10px 0;
+}
+@media screen and (max-width: 750px) {
+  .foot-atas {
+    display: block;
+  }
+  .sosmed {
+    text-align: center;
+  }
+  .info {
+    display: block;
+    text-align: center;
+  }
+}

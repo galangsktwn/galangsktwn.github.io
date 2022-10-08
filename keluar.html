@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>logout...</title>
+  </head>
+  <body>
+    <script>
+      // Cookie
+      // Atur Cookie
+      function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+      setCookie("login", "", -10);
+      setCookie("error", "", -10);
+      setCookie("passwd", "", -10);
+      setCookie("alert", "", -10);
+      location.href = "index.html";
+    </script>
+  </body>
+</html>

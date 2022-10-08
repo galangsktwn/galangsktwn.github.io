@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome!</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Roboto:wght@300;400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Lato", sans-serif;
+      }
+      body {
+        background: url("img/lockscreen.jpg");
+        background-position: center center;
+        background-size: cover;
+      }
+      .konten {
+        display: block;
+        margin: auto;
+        width: 100%;
+        /* max-width: 500px; */
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        background: rgba(0, 0, 0, 0.2);
+        transition: 0.7s;
+      }
+      .konten.loaded .loading-layer {
+        transform: translateY(-100%);
+      }
+      .konten.unlock {
+        backdrop-filter: blur(30px);
+      }
+      .loading-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 200vh;
+        background: linear-gradient(180deg, #000 50%, transparent);
+        transition: 0.7s ease;
+      }
+      /* Tanggal */
+      #tanggal {
+        position: absolute;
+        top: 65px;
+        left: 30px;
+        opacity: 0;
+        color: #fff;
+        transition: 0.7s ease;
+      }
+      .loaded #tanggal {
+        opacity: 1;
+        top: 50px;
+      }
+      .unlock #tanggal {
+        opacity: 0;
+      }
+      #tanggal span {
+        display: block;
+        margin-bottom: 7px;
+      }
+      #tanggal span:nth-child(1) {
+        font-size: 20px;
+      }
+      #tanggal span:nth-child(2) {
+        font-size: 16px;
+      }
+      /* Waktu */
+      #waktu {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 0.7s;
+      }
+      .unlock #waktu {
+        opacity: 0;
+      }
+      #waktu span {
+        font-family: "Lato", sans-serif;
+        display: block;
+        text-align: center;
+        margin: -70px 0;
+        font-size: 200px;
+        color: #fff;
+        transition: 0.7s ease;
+      }
+      .konten.loaded #waktu span {
+        color: #c3883d;
+      }
+      /* .btm-teks {
+        position: absolute;
+        bottom: 5%;
+        opacity: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: 0.7s ease 0.3s;
+        color: #fff;
+      } */
+      .lock-icon {
+        position: absolute;
+        bottom: 7%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        font-size: 27px;
+        cursor: pointer;
+        opacity: 0;
+        transition: 0.7s;
+      }
+      /* .loaded .btm-teks {
+        bottom: 7%;
+        opacity: 1;
+      } */
+      .loaded .lock-icon {
+        opacity: 1;
+      }
+      .unlock .lock-icon {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="konten">
+      <div class="loading-layer"></div>
+      <div id="tanggal">
+        <span class="hari">Sabtu</span>
+        <span class="tgl">October 08, 2022</span>
+      </div>
+      <div id="waktu">
+        <span class="jam">09</span>
+        <span class="menit">30</span>
+      </div>
+      <!-- <p class="btm-teks">Tap to unlock</p> -->
+      <span class="material-symbols-outlined lock-icon">lock</span>
+    </div>
+    <script>
+      // Loaded Content
+      let konten = document.querySelector(".konten");
+      document.body.onload = () => {
+        konten.classList.add("loaded");
+      };
+      window.addEventListener("click", () => {
+        if (konten.classList.contains("loaded")) {
+          konten.classList.add("unlock");
+        }
+      });
+      konten.addEventListener("transitionend", () => {
+        if (konten.classList.contains("unlock")) {
+          location.href = "login.html";
+        }
+      });
+      // Date & Time
+      let printHari = document.querySelector(".hari");
+      let printTgl = document.querySelector(".tgl");
+      let printJam = document.querySelector(".jam");
+      let printMenit = document.querySelector(".menit");
+      setInterval(() => {
+        const d = new Date();
+        const hari = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+        ];
+        const bulan = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        let day = hari[d.getDay()];
+        let month = bulan[d.getMonth()];
+        let jam = d.getHours();
+        let menit = d.getMinutes();
+        jam = jam < 10 ? `0${jam}` : jam;
+        menit = menit < 10 ? `0${menit}` : menit;
+        printHari.innerText = day;
+        printTgl.innerText = month + " " + d.getDate() + ", " + d.getFullYear();
+        printJam.innerText = jam;
+        printMenit.innerText = menit;
+      });
+      // Cookie
+      let lockIcon = document.querySelector(".lock-icon");
+      // Ambil Cookie
+      function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+      // Cek Cookie
+      function checkCookie() {
+        let masuk = getCookie("login");
+        if (masuk == "" || masuk == "0" || masuk == null) {
+          lockIcon.innerText = "lock";
+        } else {
+          lockIcon.innerText = "lock_open";
+        }
+      }
+      checkCookie();
+    </script>
+  </body>
+</html>

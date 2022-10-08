@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Roboto:wght@300;400;700&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Roboto", sans-serif;
+      }
+      body {
+        background: url("https://unsplash.com/photos/Av1daL4faFs/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjY0OTgyNDk3&force=true&w=1920");
+        background-position: center center;
+        background-size: cover;
+      }
+      .konten {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        backdrop-filter: blur(30px);
+        position: relative;
+      }
+      .konten * {
+        opacity: 0;
+        transition: opacity 0.7s ease;
+      }
+      .konten.loaded * {
+        opacity: 1;
+      }
+      .login-cont {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+      }
+      .pic-profile {
+        display: block;
+        margin: auto;
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        overflow: hidden;
+        object-fit: cover;
+      }
+      .name {
+        display: block;
+        text-align: center;
+        color: #fff;
+        font-size: 20px;
+        margin: 30px 0;
+      }
+      .pin-box {
+        display: block;
+        margin: auto;
+        width: 270px;
+        height: 30px;
+        position: relative;
+      }
+      .pin-box input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background: none;
+        outline: none;
+        color: #fff;
+        border-bottom: 1px solid #a9a9a986;
+        padding-left: 5px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+      }
+      .pin-box input::placeholder {
+        color: #a9a9a986;
+      }
+      .pin-box span {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #a9a9a986;
+        font-size: 20px;
+      }
+      .pin-box p {
+        display: none;
+        position: absolute;
+        left: 5px;
+        bottom: -20px;
+        font-size: 12px;
+        color: #f44336;
+      }
+      .pin-box input:focus,
+      .pin-box.focus input {
+        color: #fff;
+        border-bottom: 2px solid #c3883d;
+        background-color: #3b29122d;
+      }
+      .pin-box input:focus ~ span,
+      .pin-box.focus > span {
+        color: #fff;
+      }
+      .pin-box.incorrect input {
+        border-color: #f44336;
+      }
+      .pin-box.incorrect > span {
+        color: #f44336 !important;
+        font-variation-settings: "FILL" 1;
+      }
+      .pin-box.incorrect p {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="konten">
+      <div class="login-cont">
+        <img src="img/gemoy.jpg" alt="Profile Picture" class="pic-profile" />
+        <p class="name">Nabila Latipa Zahra</p>
+        <div class="pin-box">
+          <input type="password" name="pin" id="pin" placeholder="PIN" />
+          <span class="material-symbols-rounded">visibility</span>
+          <p class="notif">*The PIN is incorrect. Try Again.</p>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.body.onload = () => {
+        document.querySelector(".konten").classList.add("loaded");
+      };
+      // Pin Box
+      let pinBox = document.querySelector(".pin-box");
+      let inputPin = document.querySelector(".pin-box input");
+      let pinEye = document.querySelector(".pin-box span");
+      inputPin.addEventListener("keyup", () => {
+        removeIncorrect();
+        // Focus
+        if (!inputPin.value == "") {
+          pinBox.classList.add("focus");
+        } else {
+          pinBox.classList.remove("focus");
+        }
+        // Redirect
+        if (inputPin.value.length === 6) {
+          setCookie("passwd", inputPin.value, 7);
+          location.href = "cek.html";
+        }
+      });
+      // Show/Hide Passwd
+      pinEye.addEventListener("click", () => {
+        if (inputPin.type === "password") {
+          inputPin.type = "text";
+          pinEye.innerText = "visibility_off";
+        } else {
+          inputPin.type = "password";
+          pinEye.innerText = "visibility";
+        }
+      });
+      // Remove Incorrect Notif
+      function removeIncorrect() {
+        pinBox.classList.remove("incorrect");
+        if (!pinBox.classList.contains("incorrect")) {
+          pinEye.innerText = "visibility";
+        }
+      }
+
+      // Cookie
+      // Atur Cookie
+      function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+        let expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+      }
+      // Ambil Cookie
+      function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(";");
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == " ") {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+      // Check Cookie
+      function checkError() {
+        let namaCookie = getCookie("error");
+        if (namaCookie == "1") {
+          pinBox.classList.add("incorrect");
+          pinEye.innerText = "error";
+        }
+      }
+      function checkLogin() {
+        let namaCookie = getCookie("login");
+        if (namaCookie == "1") {
+          location.href = "home.html";
+        }
+      }
+      checkError();
+      checkLogin();
+    </script>
+  </body>
+</html>

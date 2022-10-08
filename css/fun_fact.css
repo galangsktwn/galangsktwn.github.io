@@ -1,0 +1,43 @@
+#konten{
+    width: 100%;
+    max-width: 700px;
+    display: block;
+    margin: 150px auto;
+    overflow: hidden;
+    padding: 13px;
+}
+.judul-utama{
+    text-align: center;
+    margin-bottom: 50px;
+}
+#konten img{
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+.paragraf{
+    text-align: justify;
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+}
+.sub-judul{
+    margin: 10px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.end-buttons{
+    display: flex;
+    justify-content: center;
+}
+.end-buttons *{
+    display: block;
+    background-color: #c3883d;
+    width: 100%;
+    text-align: center;
+    margin: 0 10px;
+    padding: 10px 0;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+}

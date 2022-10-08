@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/hadiah.css" />
+    <link rel="stylesheet" href="css/rate-modal.css" />
+    <link rel="stylesheet" href="css/video.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+    />
+    <title>Hadiah untukmu!</title>
+    <style>
+      #header {
+        background: url(img/header1.jpg);
+        height: 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div id="navbar" class="diatas">
+      <div class="title">
+        <p>GN</p>
+      </div>
+      <!-- <i class="fa-solid fa-bars tbl-menu"></i> -->
+      <span class="material-symbols-rounded tbl-menu diatas">more_vert</span>
+      <div class="menu-material">
+        <span id="rate-btn">Penilaian</span>
+        <a href="keluar.html">Keluar</a>
+      </div>
+      <div class="menu">
+        <i class="fa-solid fa-xmark tbl-tutup"></i>
+        <a href="home.html">Home</a>
+        <a href="#" class="aktif">Hadiah</a>
+        <a href="fun_fact.html">Fun Fact</a>
+        <span id="rate-btn">Penilaian</span>
+        <a href="keluar.html">Keluar</a>
+      </div>
+      <div class="progress-bar loading"></div>
+    </div>
+    <!-- header -->
+    <div id="header">
+      <div class="konten-header">
+        <h1>
+          Happy
+          <span
+            >20
+            <span>th</span>
+          </span>
+          Birthday!
+        </h1>
+
+        <p>Nabila Latipa Zahra</p>
+      </div>
+    </div>
+    <!-- konten -->
+    <div id="konten">
+      <div class="hadiah">
+        <h1>kartu ucapan</h1>
+        <div class="kartu-ucapan">
+          <div class="depan">
+            <img src="img/cover2.png" alt="" />
+            <p class="judul">Happy Birthday</p>
+            <p class="nama"><span>To:</span>Nabila Latipa Zahra</p>
+            <p class="from">klik untuk melihat<br />from: Galang</p>
+          </div>
+          <div class="belakang">
+            <h1>selamat ulang tahun sayangkuu</h1>
+            <p>
+              sebelumnya aku mau minta maaf yaa ayang, maafin aku kalo sering
+              jahat sama kamu, sering bikin kamu nangis ataupun itu sedih. maaf
+              kalo aku belum bisa jadi yang terbaik buat kamu, oiyaaa hari ini
+              kamu ulang taun yaa, selamat yaa sayang. ciee yang udah masuk
+              kepala 2, gakerasa umur kamu udah 20 taun ajaa ya kan, semoga kamu
+              sehat selalu, dipanjangin umurnya sama Allah, dilancarin kuliahnya
+              sampai jadi s1 ataupun s2 nanti, kamu bilang nanti abis lulus s1
+              mau lanjut s2 kan ayang, semoga dilancarin selalu yaa dan semoga
+              apa yang kamu inginkan segera tercapai aamiin. luv u ayangg!!
+            </p>
+          </div>
+        </div>
+        <h2>scroll kebawah, untuk melihat vidio</h2>
+        <p>
+          selamat ulang tahun selamat ulang tahun selamat ulang tahun selamat
+          ulang tahun selamat ulang tahun selamat ulang tahun selamat ulang
+          tahun
+        </p>
+        <div class="video-player desktop">
+          <!-- Kendali Desktop -->
+          <div class="kendali-desktop tampilkan-kendali">
+            <div class="status">
+              <i class="fa-solid fa-play"></i>
+            </div>
+            <div class="kendali">
+              <div class="bar-durasi">
+                <div class="bar-case"></div>
+                <div class="loading-bar">
+                  <div class="line-bar-1"></div>
+                  <div class="line-bar-2"></div>
+                </div>
+                <div class="current-bar"></div>
+                <input
+                  class="slide-bar"
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="any"
+                  value="0"
+                />
+              </div>
+              <div class="buttons">
+                <div class="kiri">
+                  <button class="mundur">
+                    <i class="fa-solid fa-backward"></i>
+                  </button>
+                  <button class="putar-jeda">
+                    <i class="fa-solid fa-play"></i>
+                  </button>
+                  <button class="maju">
+                    <i class="fa-solid fa-forward"></i>
+                  </button>
+                  <div class="audio">
+                    <button class="suara">
+                      <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                    <div class="volume-bar">
+                      <div class="bar-case"></div>
+                      <div class="current-bar"></div>
+                      <input
+                        class="slide-bar"
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="100"
+                        step="any"
+                      />
+                    </div>
+                  </div>
+                  <div class="durasi-video">
+                    <span class="current-time">00:00</span>
+                    <span>/</span>
+                    <span class="durasi">00:00</span>
+                  </div>
+                </div>
+                <div class="kanan">
+                  <button class="fullscreen">
+                    <i class="fa-solid fa-expand"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Kendali Mobile -->
+          <div class="kendali-mobile tampilkan-kendali">
+            <div class="kendali">
+              <button class="mundur">
+                <i class="fa-solid fa-backward"></i>
+              </button>
+              <button class="putar-jeda">
+                <i class="fa-solid fa-play"></i>
+              </button>
+              <button class="maju"><i class="fa-solid fa-forward"></i></button>
+            </div>
+            <div class="status">
+              <div class="info">
+                <div class="durasi-video">
+                  <span class="current-time">00:00</span>
+                  <span>/</span>
+                  <span class="durasi">00:00</span>
+                </div>
+                <button class="fullscreen">
+                  <i class="fa-solid fa-expand"></i>
+                </button>
+              </div>
+              <div class="bar-durasi">
+                <div class="bar-case"></div>
+                <div class="loading-bar">
+                  <div class="line-bar-1"></div>
+                  <div class="line-bar-2"></div>
+                </div>
+                <div class="current-bar"></div>
+                <input
+                  class="slide-bar"
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="any"
+                  value="0"
+                />
+              </div>
+            </div>
+          </div>
+          <video src="img/luv.mp4" poster=""></video>
+        </div>
+        <a href="fun_fact.html">Selanjutnya</a>
+      </div>
+    </div>
+    <!-- Rate Modal -->
+    <div id="rate-layer">
+      <div class="rate-modal">
+        <div class="heading">
+          <h1>Berikan penilaianmu</h1>
+          <span class="material-symbols-rounded tutup-penilaian">close</span>
+        </div>
+        <div class="stars">
+          <input type="radio" name="bintang" id="bintang5" value="5" /><label
+            for="bintang5"
+            ><span class="material-symbols-rounded">star</span></label
+          >
+          <input type="radio" name="bintang" id="bintang4" value="4" /><label
+            for="bintang4"
+            ><span class="material-symbols-rounded">star</span></label
+          >
+          <input type="radio" name="bintang" id="bintang3" value="3" /><label
+            for="bintang3"
+            ><span class="material-symbols-rounded">star</span></label
+          >
+          <input type="radio" name="bintang" id="bintang2" value="2" /><label
+            for="bintang2"
+            ><span class="material-symbols-rounded">star</span></label
+          >
+          <input type="radio" name="bintang" id="bintang1" value="1" /><label
+            for="bintang1"
+            ><span class="material-symbols-rounded">star</span></label
+          >
+        </div>
+        <h2>Komentar</h2>
+        <textarea
+          id="komentar"
+          placeholder="Berikan komentarmu tentang ini (Opsional)"
+        ></textarea>
+        <p class="ket">
+          Ketika kamu klik kirim, Kamu akan dibawa ke halaman Whatsapp untuk
+          memberikan hasil penilaian kamu. Pesan kamu akan lansung dikirim
+          langsung ke Galang.
+        </p>
+        <div class="tombol">
+          <button id="cancle">Batal</button>
+          <button id="send">Kirim</button>
+        </div>
+      </div>
+    </div>
+    <!-- Warning -->
+    <div class="snackbar">
+      <p>
+        Dikarenakan kondisi Galang yang sedang Flu. Project ini tidak selesai
+        100%.
+      </p>
+      <span id="confirm">Oke</span>
+    </div>
+    <!-- footer -->
+    <div id="footer">
+      <div class="foot-atas">
+        <div class="sosmed">
+          <h2>follow me</h2>
+          <div class="icon">
+            <a
+              target="_blank"
+              href="https://www.facebook.com/galang.a.saktiawan"
+              class="redirect"
+              ><i class="fa-brands fa-facebook"></i
+            ></a>
+            <a
+              target="_blank"
+              href="https://www.instagram.com/galangsktwn_/"
+              class="redirect"
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
+            <a
+              target="_blank"
+              href="https://wa.me/628551855122"
+              class="redirect"
+              ><i class="fa-brands fa-whatsapp"></i
+            ></a>
+            <a
+              target="_blank"
+              href="https://www.tiktok.com/@ga1anggg19?lang=en"
+              class="redirect"
+              ><i class="fa-brands fa-tiktok"></i
+            ></a>
+          </div>
+        </div>
+        <div class="info">
+          <div class="kolom">
+            <h2>Halaman Web</h2>
+            <a href="home.html">Home</a>
+            <a href="#" class="aktif">Hadiah</a>
+            <a href="fun_fact.html">Fun Fact</a>
+            <span id="rate-btn">Penilaian</span>
+            <a href="keluar.html">Keluar</a>
+          </div>
+          <div class="kolom">
+            <h2>Kontak Saya</h2>
+            <p>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Perumahan Permata Sepatan</span>
+            </p>
+            <p>
+              <i class="fa-solid fa-phone"></i>
+              <span>0855-1855-122</span>
+            </p>
+            <p>
+              <i class="fa-solid fa-envelope"></i>
+              <span>saktiawangalang01@gmail.com</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="foot-bawah">
+        <p>Made with <i class="fa-solid fa-heart"></i> by Galang</p>
+      </div>
+    </div>
+    <div id="transisi-tutup"></div>
+    <div id="transisi-buka"></div>
+    <!-- Nav Bawah -->
+    <div id="nav-bawah">
+      <a href="home.html">
+        <span class="material-symbols-rounded">home</span>
+        <span class="label">Home</span>
+      </a>
+      <a href="#" class="aktif">
+        <span class="material-symbols-rounded">redeem</span>
+        <span class="label">Hadiah</span>
+      </a>
+      <a href="fun_fact.html">
+        <span class="material-symbols-rounded">sentiment_very_satisfied</span>
+        <span class="label">Fun Fact</span>
+      </a>
+    </div>
+    <script src="js/script.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/login-check.js"></script>
+  </body>
+</html>
